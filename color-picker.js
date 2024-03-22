@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 //doplnit api key
 const openai = new OpenAI({ apiKey: '' });
 
-export async function main() {
+export async function main(imageUrl) {
   const response = await openai.chat.completions.create({
     model: 'gpt-4-vision-preview',
     messages: [
@@ -14,7 +14,7 @@ export async function main() {
           {
             type: 'image_url',
             image_url: {
-              url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/NASA_website_homepage.jpg/640px-NASA_website_homepage.jpg',
+              url: imageUrl,
             },
           },
         ],
